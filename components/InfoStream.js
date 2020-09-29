@@ -14,12 +14,12 @@ import {
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: '2rem',
-    height: '100%',
-    width: '100%',
   },
   maxSize: {
     height: '100%',
-    width: '100%',
+  },
+  margin: {
+    margin: 'auto',
   },
 }));
 
@@ -46,16 +46,16 @@ const InfoStream = ({ infoStream }) => {
 
           <Grid
             item
-            xs={3}
+            xs={12}
             container
             direction="row"
-            justify="space-between"
-            alignItems="stretch"
-            spacing={4}
+            justify="center"
+            alignItems="flex-start"
+            spacing={6}
           >
             <Statistics infoStream={infoStream} classes={classes} />
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={12}>
             <SpectRealTime spects={spects} classes={classes} />
           </Grid>
         </Grid>
@@ -74,16 +74,16 @@ function Statistics({ infoStream, classes }) {
         container
         direction="row"
         justify="flex-start"
-        alignItems="center"
-        xs={12}
+        alignItems="flex-start"
+        xs={3}
       >
-        <Grid item xs={3} className={classes.maxSize}>
-          <Visibility color="primary" fontSize="large" />
+        <Grid item xs={2}>
+          <Visibility color="primary" />
         </Grid>
-        <Grid item xs={9} className={classes.maxSize}>
+        <Grid item xs={4}>
           <Typography display="inline" variant="h6">
             {' '}
-            {spects}
+            <b>{spects}</b>
           </Typography>
         </Grid>
       </Grid>
@@ -92,13 +92,13 @@ function Statistics({ infoStream, classes }) {
         container
         direction="row"
         justify="flex-start"
-        alignItems="center"
-        xs={12}
+        alignItems="flex-start"
+        xs={3}
       >
-        <Grid item xs={3} className={classes.maxSize}>
-          <ThumbUpAlt color="primary" fontSize="large" />
+        <Grid item xs={2}>
+          <ThumbUpAlt color="primary" />
         </Grid>
-        <Grid item xs={9} className={classes.maxSize}>
+        <Grid item xs={4}>
           <Typography display="inline" variant="h6">
             {' '}
             {likes}
@@ -110,13 +110,13 @@ function Statistics({ infoStream, classes }) {
         container
         direction="row"
         justify="flex-start"
-        alignItems="center"
-        xs={12}
+        alignItems="flex-start"
+        xs={3}
       >
-        <Grid item xs={3} className={classes.maxSize}>
-          <QueryBuilder color="primary" fontSize="large" />
+        <Grid item xs={2}>
+          <QueryBuilder color="primary" />
         </Grid>
-        <Grid item xs={9} className={classes.maxSize}>
+        <Grid item xs={4}>
           <Typography display="inline" variant="h6">
             {' '}
             {duration}
@@ -183,18 +183,18 @@ function SpectRealTime({ spects, classes }) {
     >
       <Grid item xs={12}>
         <Typography display="inline" variant="h6">
-          Espectadores en tiempo real
+          <b>Espectadores en tiempo real</b>
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <ResponsiveContainer width={'100%'} height={150}>
+        <ResponsiveContainer width={'99%'} height={150}>
           <AreaChart
-            width={900}
+            width={800}
             height={150}
             data={data}
             margin={{
               top: 10,
-              right: 30,
+              right: 10,
               left: 0,
               bottom: 0,
             }}
