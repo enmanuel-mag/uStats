@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: 'auto',
   },
+  paper: {
+    height: '100%',
+    boxShadow:
+      '0 15px 35px 0 rgba(18,37,49,.1),0 5px 15px 0 rgba(0,0,0,.05)!important',
+  },
 }));
 
 const InfoStream = ({ infoStream }) => {
@@ -28,7 +33,7 @@ const InfoStream = ({ infoStream }) => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.maxSize}>
+    <Paper className={classes.paper} elevation={0}>
       <Container className={classes.container}>
         <Grid
           container

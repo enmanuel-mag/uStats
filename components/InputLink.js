@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '3.5rem',
     textAlign: 'center',
   },
+  paper: {
+    boxShadow:
+      '0 15px 35px 0 rgba(18,37,49,.1),0 5px 15px 0 rgba(0,0,0,.05)!important',
+  },
 }));
 
 const InputLink = () => {
@@ -27,7 +31,7 @@ const InputLink = () => {
   };
 
   return (
-    <Paper>
+    <Paper className={classes.paper} elevation={0}>
       <Container className={classes.container} maxWidth="sm">
         <Grid
           container

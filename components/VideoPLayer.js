@@ -17,7 +17,14 @@ const VideoPLayer = (props) => {
   const { urlVideo } = props;
   const classes = useStyles();
 
-  return <ReactPlayer className={classes.container} url={urlVideo} />;
+  return (
+    <ReactPlayer
+      className={classes.container}
+      url={urlVideo}
+      height="100%"
+      width="auto"
+    />
+  );
 };
 
 export default VideoPLayer;

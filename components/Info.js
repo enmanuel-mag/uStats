@@ -6,12 +6,17 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: '3.5rem',
   },
+
+  paper: {
+    boxShadow:
+      '0 15px 35px 0 rgba(18,37,49,.1),0 5px 15px 0 rgba(0,0,0,.05)!important',
+  },
 }));
 
 const Info = () => {
   const classes = useStyles();
   return (
-    <Paper>
+    <Paper className={classes.paper} elevation={0}>
       <Container className={classes.container} maxWidth="xl">
         <Grid container spacing={4} direction="column">
           <Grid item>

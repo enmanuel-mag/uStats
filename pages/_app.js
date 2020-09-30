@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+
 import theme from '../styles/theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 

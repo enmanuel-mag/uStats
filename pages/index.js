@@ -1,12 +1,22 @@
-import { Container, Grid, Paper } from '@material-ui/core';
+import { Container, Grid, Paper, Typography } from '@material-ui/core';
 import Head from 'next/head';
-
+import { makeStyles } from '@material-ui/core/styles';
 import Hero from '../components/Hero';
 import InputLink from '../components/InputLink';
 import Info from '../components/Info';
 import Layout from '../components/Layout';
 
+const useStyles = makeStyles((theme) => ({
+  policy: {
+    padding: '2rem',
+  },
+  inter: {
+    padding: '.5rem',
+  },
+}));
+
 export default function Home() {
+  const classes = useStyles();
   return (
     <div>
       <Layout>
@@ -26,6 +36,24 @@ export default function Home() {
             </Grid>
             <Grid item xs={12}>
               <Info />
+            </Grid>
+            <Grid item xs={12}>
+              <div className={classes.policy}>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  className={classes.inter}
+                >
+                  Hecho con ❤️ por BiTeam
+                </Typography>
+                <Typography
+                  variant="body1"
+                  align="center"
+                  className={classes.inter}
+                >
+                  Este sitio no está de ninguna manera afiliado con Youtube
+                </Typography>
+              </div>
             </Grid>
           </Grid>
         </Container>

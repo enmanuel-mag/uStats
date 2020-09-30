@@ -1,29 +1,6 @@
-import {
-  Container,
-  Grid,
-  ListItem,
-  Paper,
-  Typography,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    padding: '2rem',
-    height: '100%',
-    width: '100%',
-  },
-  maxSize: {
-    height: '100%',
-    width: '100%',
-  },
-  paper: {
-    height: '100%',
-    boxShadow:
-      '0 15px 35px 0 rgba(18,37,49,.1),0 5px 15px 0 rgba(0,0,0,.05)!important',
-  },
-}));
+import { makeStyles } from '@material-ui/core/styles';
+import { Container, ListItem, Paper, Typography } from '@material-ui/core';
 
 const useStyleList = makeStyles((theme) => ({
   root: {
@@ -34,7 +11,7 @@ const useStyleList = makeStyles((theme) => ({
     fontFeatureSettings: '"kern", "liga", "clig", "calt"',
     fontSize: 16,
     minHeight: 45,
-    lineHeight: '21px',
+    lineHeight: '15px',
     margin: 0,
     padding: '12px 48px 12px 1.5rem',
     '&:before, &:after': {
@@ -88,49 +65,49 @@ const useStyleList = makeStyles((theme) => ({
   },
 }));
 
-const Analitics = (props) => {
-  const { topics } = props;
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: '2rem',
+    height: '100%',
+    width: '100%',
+  },
+  maxSize: {
+    height: '100%',
+    width: '100%',
+  },
+  wordCloud: {
+    paddingBottom: '25px',
+  },
+  paper: {
+    height: '100%',
+    boxShadow:
+      '0 15px 35px 0 rgba(18,37,49,.1),0 5px 15px 0 rgba(0,0,0,.05)!important',
+  },
+  words: {
+    textTransform: 'capitalize',
+  },
+}));
+
+const WorldCloud = ({ words }) => {
   const classes = useStyles();
   const classesList = useStyleList();
+
   return (
     <Paper className={classes.paper}>
       <Container className={classes.container}>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start"
-          spacing={2}
-        >
-          <Grid item xs={12}>
-            <Typography variant="h5">
-              <b>Análisis de tu Stream</b>
+        <Typography variant="h5" className={classes.wordCloud}>
+          <b>Palabras mas frecuentes</b>
+        </Typography>
+        {words.map((word, index) => (
+          <ListItem key={index} classes={classesList}>
+            <Typography variant="h6" className={classes.words}>
+              {index + 1}- {word.text} ({word.value})
             </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            xs={12}
-            direction="row"
-            justify="flex-start"
-            alignItems="flex-start"
-            spacing={1}
-          >
-            <Grid item xs={12}>
-              <Typography variant="h6">Temas frecuentes:</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              {topics.map((topic, index) => (
-                <ListItem key={index} classes={classesList}>
-                  {index + 1}- {topic.main}
-                </ListItem>
-              ))}
-            </Grid>
-          </Grid>
-        </Grid>
+          </ListItem>
+        ))}
       </Container>
     </Paper>
   );
 };
 
-export default Analitics;
+export default WorldCloud;
